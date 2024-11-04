@@ -10,14 +10,14 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-import com.sneha.blogging.security.CustomUserDetailService;
+//import com.sneha.blogging.security.CustomUserDetailService;
 
 @Configuration
 @EnableWebSecurity
 public abstract class SecurityConfig implements SecurityFilterChain{
 
-	@Autowired
-	private CustomUserDetailService customUserDetailService;
+//	@Autowired
+//	private CustomUserDetailService customUserDetailService;
 	
 	public void securityFilterChain(HttpSecurity http) throws Exception{
 		http.		
@@ -30,12 +30,12 @@ public abstract class SecurityConfig implements SecurityFilterChain{
 	    httpBasic();
 	}
 	
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception{
-		auth.userDetailsService(this.customUserDetailService).passwordEncoder(passwordEncoder());
-	}
-
-	@Bean
-	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
+//	protected void configure(AuthenticationManagerBuilder auth) throws Exception{
+//		auth.userDetailsService(this.customUserDetailService).passwordEncoder(passwordEncoder());
+//	}
+//
+//	@Bean
+//	public PasswordEncoder passwordEncoder() {
+//		return new BCryptPasswordEncoder();
+//	}
 }
